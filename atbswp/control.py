@@ -562,7 +562,7 @@ class PlayThread(Thread):
 
     def end(self):
         self._end.set()
-        if (sys.argv.length>1) and ( sys.argv[2] == '-exit'):
+        if len(sys.argv)>2 and ( sys.argv[2] == '-exit'):
             print("Bye...") #  . os.getpid());
             os.kill( os.getpid(), signal.SIGKILL);
             sys.exit()
