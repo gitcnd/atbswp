@@ -179,6 +179,15 @@ class MainDialog(wx.Dialog, wx.MiniFrame):
         self.__add_bindings()
         self.__set_properties()
         self.__do_layout()
+        print(self);
+
+        if (sys.argv.length>0) and (sys.argv[1] == '-play'):
+            self.play_button.Value = True
+            btn_event = wx.CommandEvent(wx.wxEVT_TOGGLEBUTTON)
+            btn_event.EventObject = self.play_button
+            self.pbc.action(btn_event)
+            print("Played")
+
 
     def __load_locale(self):
         """Load the interface in user-defined language (default english)."""
@@ -309,6 +318,7 @@ class MainDialog(wx.Dialog, wx.MiniFrame):
 
     def on_close_dialog(self, event):
         """Confirm exit."""
+        """ Dumb:-
         dialog = wx.MessageDialog(self,
                                   message="Are you sure you want to quit?",
                                   caption="Confirm Exit",
@@ -319,7 +329,8 @@ class MainDialog(wx.Dialog, wx.MiniFrame):
         if (response == wx.ID_YES):
             self.on_exit_app(event)
         else:
-            event.StopPropagation()
+            event.StopPropagation()  """
+        self.on_exit_app(event)
 
     def on_about(self, event):
         """About dialog."""
