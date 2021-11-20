@@ -16,7 +16,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-import os
+import os, signal
 import py_compile
 import shutil
 import sys
@@ -562,6 +562,10 @@ class PlayThread(Thread):
 
     def end(self):
         self._end.set()
+        if (sys.argv.length>1) and ( sys.argv[2] == '-exit'):
+            print("Bye...") #  . os.getpid());
+            os.kill( os.getpid(), signal.SIGKILL);
+            sys.exit()
 
     def ended(self):
         return self._end.isSet()
