@@ -4,6 +4,22 @@
 Literally Automate the boring stuff with Python, allows the user to record his mouse and keyboard 
 actions and reproduce them identically as many times as he wants.
 
+# This Fork
+
+This is a fork of https://github.com/RMPR/atbswp with 2 additional features added: commandline switches:-
+
+- -play - will auto-play the most recent acpture as soon as the code starts
+- -exit - will terminate the program after the -play has finished
+
+e.g.
+
+```shell
+
+  ./atbswp.py -play -exit
+
+```
+
+
 # Use cases
 I've mainly used it to automate gold/point/XP farming in games, I think this can also be used to:
 
