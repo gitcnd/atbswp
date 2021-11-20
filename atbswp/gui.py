@@ -181,7 +181,7 @@ class MainDialog(wx.Dialog, wx.MiniFrame):
         self.__do_layout()
         print(self);
 
-        if (sys.argv.length>0) and (sys.argv[1] == '-play'):
+        if len(sys.argv)>1 and (sys.argv[1] == '-play'):
             self.play_button.Value = True
             btn_event = wx.CommandEvent(wx.wxEVT_TOGGLEBUTTON)
             btn_event.EventObject = self.play_button
